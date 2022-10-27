@@ -1,0 +1,23 @@
+﻿@page "/Keisan"
+
+<PageTitle>計算</PageTitle>
+
+<h1>計算</h1>
+
+<input type="text" id="num1" @bind="Num1">
++
+<input type="text" id="num2" @bind="Num2">
+
+<button class="btn btn-primary" @onclick="() => Calculate(Num1, Num2)">計算</button>
+<span id="blazor">@result</span>
+
+@code {
+    private decimal Num1 = 0m;
+    private decimal Num2 = 0m;
+    private decimal result;
+
+    void Calculate(params decimal[] number)
+    {
+        result = number.Sum();
+    }
+}
